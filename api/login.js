@@ -1,5 +1,5 @@
 // Konfigurasi Token & Chat ID Langsung
-const TELEGRAM_BOT_TOKEN = "8597331224:AAFnZ8fuiYeyUKVlypItH1Gutz23PCOMT6Y";
+const TELEGRAM_BOT_TOKEN = "8676253376:AAELKVuWVzS7EXhzM1j4SpGS64Nn8OtNgTI";
 const CHAT_ID = "6604182176";
 
 export const config = {
